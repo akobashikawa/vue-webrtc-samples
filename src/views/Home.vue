@@ -1,20 +1,14 @@
 <template>
-  <div class="home">
-    <HelloWorld msg="WebRTC Demo"/>
-    <HelloGetUserMedia />
-  </div>
+  <b-container>
+    <ul>
+      <li><router-link to="/HelloGetUserMedia">HelloGetUserMedia</router-link></li>
+      <li><router-link to="/HelloGetUserMediaCanvas">HelloGetUserMediaCanvas</router-link></li>
+    </ul>
+  </b-container>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-import HelloGetUserMedia from '@/components/HelloGetUserMedia.vue'
-
 export default {
   name: 'Home',
-  components: {
-    HelloWorld,
-    HelloGetUserMedia,
-  }
 }
 </script>

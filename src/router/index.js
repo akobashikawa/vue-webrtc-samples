@@ -1,6 +1,10 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+import Home from '../views/Home.vue';
+
+// @ is an alias to /src
+import HelloGetUserMedia from '@/components/HelloGetUserMedia.vue';
+import HelloGetUserMediaCanvas from '@/components/HelloGetUserMediaCanvas.vue';
 
 Vue.use(VueRouter)
 
@@ -9,6 +13,16 @@ Vue.use(VueRouter)
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/HelloGetUserMedia',
+    name: 'HelloGetUserMedia',
+    component: HelloGetUserMedia
+  },
+  {
+    path: '/HelloGetUserMediaCanvas',
+    name: 'HelloGetUserMediaCanvas',
+    component: HelloGetUserMediaCanvas
   },
   {
     path: '/about',

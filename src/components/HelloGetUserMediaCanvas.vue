@@ -1,8 +1,10 @@
 <template>
   <b-container>
-    <h2>Hello getUserMedia</h2>
+    <h2>Hello getUserMedia + Canvas</h2>
 
     <video ref="video" autoplay playsinline></video>
+    <b-btn class="my-2" @click="takeSnapshot">Take snapshot</b-btn>
+    <canvas ref="canvas"></canvas>
 
     <ul>
       <li v-for="(msg, key) of errorMsgs" :key="key">
@@ -19,9 +21,8 @@ const constraints = (window.constraints = {
 });
 
 export default {
-  name: "HelloGetUserMedia",
-  components: {
-  },
+  name: "HelloGetUserMediaCanvas",
+  components: {},
   data() {
     return {
       errorMsgs: [],
@@ -29,6 +30,10 @@ export default {
   },
   methods: {
     async init() {
+      const canvas = this.$refs["canvas"];
+      console.log("canvas", canvas);
+      canvas.width = 480;
+      canvas.height = 360;
       try {
         const stream = await navigator.mediaDevices.getUserMedia(constraints);
         console.log("stream", stream);
@@ -39,8 +44,8 @@ export default {
     },
 
     handleSuccess(stream) {
-      const video = this.$refs['video'];
-      console.log('video el', this.$refs['video']);
+      const video = this.$refs["video"];
+      console.log("video", this.$refs["video"]);
       const videoTracks = stream.getVideoTracks();
       console.log("Got stream with constraints:", constraints);
       console.log(`Using video device: ${videoTracks[0].label}`);
@@ -70,6 +75,16 @@ export default {
       if (typeof error !== "undefined") {
         console.error(error);
       }
+    },
+
+    takeSnapshot() {
+      const video = this.$refs["video"];
+      const canvas = this.$refs["canvas"];
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      canvas
+        .getContext("2d")
+        .drawImage(video, 0, 0, canvas.width, canvas.height);
     },
   },
   mounted() {
