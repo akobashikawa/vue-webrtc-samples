@@ -1,5 +1,9 @@
 # webrtc-hello
 
+WebRTC Samples usando Vue.
+
+https://webrtc.github.io/samples/
+
 ## Project setup
 ```
 npm install
