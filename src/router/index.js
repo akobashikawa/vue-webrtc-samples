@@ -5,6 +5,7 @@ import Home from '../views/Home.vue';
 // @ is an alias to /src
 import HelloGetUserMedia from '@/components/HelloGetUserMedia.vue';
 import HelloGetUserMediaCanvas from '@/components/HelloGetUserMediaCanvas.vue';
+import HelloGetUserMediaCanvasFilter from '@/components/HelloGetUserMediaCanvasFilter.vue';
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,11 @@ Vue.use(VueRouter)
     path: '/HelloGetUserMediaCanvas',
     name: 'HelloGetUserMediaCanvas',
     component: HelloGetUserMediaCanvas
+  },
+  {
+    path: '/HelloGetUserMediaCanvasFilter',
+    name: 'HelloGetUserMediaCanvasFilter',
+    component: HelloGetUserMediaCanvasFilter
   },
   {
     path: '/about',

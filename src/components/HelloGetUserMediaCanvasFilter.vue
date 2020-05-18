@@ -1,15 +1,17 @@
 <template>
   <b-container>
-    <h2>Hello getUserMedia + Canvas</h2>
+    <h2>Hello getUserMedia + Canvas + Filter</h2>
 
     <b-row>
-        <b-col>
-            <video ref="video" autoplay playsinline></video>
-        </b-col>
-        <b-col>
-            <canvas ref="canvas"></canvas>
-        </b-col>
+      <b-col>
+        <video ref="video" autoplay playsinline :class="filter"></video>
+      </b-col>
+      <b-col>
+        <canvas ref="canvas"></canvas>
+      </b-col>
     </b-row>
+
+    <b-select :options="options" v-model="filter"></b-select>
 
     <b-btn class="my-2" @click="takeSnapshot">Take snapshot</b-btn>
 
@@ -28,11 +30,19 @@ const constraints = (window.constraints = {
 });
 
 export default {
-  name: "HelloGetUserMediaCanvas",
+  name: "HelloGetUserMediaCanvasFilter",
   components: {},
   data() {
     return {
       errorMsgs: [],
+      options: [
+        { value: "none", text: "none" },
+        { value: "blur", text: "blur" },
+        { value: "grayscale", text: "grayscale" },
+        { value: "invert", text: "invert" },
+        { value: "sepia", text: "sepia" },
+      ],
+      filter: "none",
     };
   },
   methods: {
@@ -87,8 +97,9 @@ export default {
     takeSnapshot() {
       const video = this.$refs["video"];
       const canvas = this.$refs["canvas"];
-      canvas.width = video.videoWidth;
-      canvas.height = video.videoHeight;
+      //   canvas.width = video.videoWidth;
+      //   canvas.height = video.videoHeight;
+      canvas.className = this.filter;
       canvas
         .getContext("2d")
         .drawImage(video, 0, 0, canvas.width, canvas.height);
@@ -102,12 +113,37 @@ export default {
 </script>
 
 <style>
+.none {
+  -webkit-filter: none;
+  filter: none;
+}
+
+.blur {
+  -webkit-filter: blur(3px);
+  filter: blur(3px);
+}
+
+.grayscale {
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+}
+
+.invert {
+  -webkit-filter: invert(1);
+  filter: invert(1);
+}
+
+.sepia {
+  -webkit-filter: sepia(1);
+  filter: sepia(1);
+}
+
 video {
-    width: 100%;
-    object-fit: cover;
+  width: 100%;
+  object-fit: cover;
 }
 
 canvas {
-    width: 100%;
+  width: 100%;
 }
 </style>
