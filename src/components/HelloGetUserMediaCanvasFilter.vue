@@ -97,8 +97,8 @@ export default {
     takeSnapshot() {
       const video = this.$refs["video"];
       const canvas = this.$refs["canvas"];
-      //   canvas.width = video.videoWidth;
-      //   canvas.height = video.videoHeight;
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
       canvas.className = this.filter;
       canvas
         .getContext("2d")
