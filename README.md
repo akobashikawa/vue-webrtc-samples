@@ -1,4 +1,4 @@
-# webrtc-hello
+# Vue WebRTC Samples
 
 WebRTC Samples usando Vue.
 
