@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["about"],{f820:function(t,e,a){"use strict";a.r(e);var n=function(){var t=this,e=t.$createElement,a=t._self._c||e;return a("b-container",[a("p",[t._v("WebRTC samples con la ayuda de Vue")]),a("p",[t._v("Original: "),a("a",{attrs:{href:"https://webrtc.github.io/samples/",target:"_blank"}},[t._v("https://webrtc.github.io/samples/")])])])},s=[],l=a("2877"),r={},u=Object(l["a"])(r,n,s,!1,null,null,null);e["default"]=u.exports}}]);
+//# sourceMappingURL=about.a35d369c.js.map
