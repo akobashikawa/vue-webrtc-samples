@@ -117,7 +117,7 @@ export default {
           this.currentWidth !== this.video.videoWidth ||
           this.currentHeight !== this.video.videoHeight
         ) {
-          this.currentWidth = this.width = this.video.videoWidth;
+          this.currentWidth = this.video.videoWidth;
           this.currentHeight = this.video.videoHeight;
         }
       }
@@ -165,6 +165,7 @@ export default {
       try {
         const stream = await navigator.mediaDevices.getUserMedia(constraints);
         console.log("stream", stream);
+        this.width = constraints.video.width.exact;
         this.handleSuccess(stream);
       } catch (error) {
         this.handleError(error);
