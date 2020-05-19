@@ -112,7 +112,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .none {
   -webkit-filter: none;
   filter: none;

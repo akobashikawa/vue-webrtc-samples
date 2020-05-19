@@ -6,6 +6,7 @@ import Home from '../views/Home.vue';
 import HelloGetUserMedia from '@/components/HelloGetUserMedia.vue';
 import HelloGetUserMediaCanvas from '@/components/HelloGetUserMediaCanvas.vue';
 import HelloGetUserMediaCanvasFilter from '@/components/HelloGetUserMediaCanvasFilter.vue';
+import HelloGetUserMediaResolution from '@/components/HelloGetUserMediaResolution.vue';
 
 Vue.use(VueRouter)
 
@@ -29,6 +30,11 @@ Vue.use(VueRouter)
     path: '/HelloGetUserMediaCanvasFilter',
     name: 'HelloGetUserMediaCanvasFilter',
     component: HelloGetUserMediaCanvasFilter
+  },
+  {
+    path: '/HelloGetUserMediaResolution',
+    name: 'HelloGetUserMediaResolution',
+    component: HelloGetUserMediaResolution
   },
   {
     path: '/about',

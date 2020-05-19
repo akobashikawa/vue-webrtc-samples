@@ -101,7 +101,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 video {
     width: 100%;
     object-fit: cover;
